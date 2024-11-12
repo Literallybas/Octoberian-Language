@@ -11,8 +11,13 @@ def fun2(s):
     for w in s.split():
         y = fun1(w)
         n = y + w[:-len(y)] + "awy"
+        if w[0].isupper():
+            n = n.capitalize()
         r.append(n)
     return " ".join(r)
 
-text = input("Enter a sentence: ")
-print(fun2(text))
+while True:
+    text = input("Enter a sentence (or type 'exit' to quit): ")
+    if text.lower() == "exit":
+        break
+    print(fun2(text))
